@@ -1,4 +1,4 @@
-<h1>Blog entries</h1>
+<h1><%=t('blog_entries')%></h1>
 
 <br/><br/>
 <%= link_to t('new_blog_entry'), new_admin_blog_entry_path %>
@@ -6,9 +6,9 @@
 
 <table cellspacing=6>
   <tr>
-    <th>Date/Author</th>
-    <th>Title and products</th>
-    <th>Body</th>
+    <th><%=t('date_auth')%></th>
+    <th><%=t('title_prod')%></th>
+    <th><%=t('body')%></th>
   </tr>
 
 <% for blog_entry in @blog_entries %>

@@ -14,4 +14,8 @@ en-GB:
   read_the_blog: "Read the blog"
   new_blog_entry: "New blog entry"
   please_add: "Please add your comment below, as plain text (i.e., no Html accepted)"
+  blog_entries: "Blog entries"
+  date_auth: "Date/Author"
+  title_prod: "Title and products"
+  body: "Body"
 
