@@ -9,7 +9,7 @@
 <%= f.hidden_field :blog_entry_id, :value => @blog.id %>
 
 <p>
-  Please add your comment below, as plain text (i.e., no Html accepted)
+  <%=t :please_add %>
 </p>
 <p>
   <%= f.text_area :body, :cols => 60, :rows => 10 %>
