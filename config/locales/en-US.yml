@@ -1,5 +1,6 @@
 en-US:
   add_comment_below: "Please add your comment below, as plain text (i.e., no Html accepted)"
+  add_comment_on_this_blog_entry: "Add a comment on blog entry"
   approve: Approve
   are_you_sure_blog_comment: "Are you sure you want to delete this blog comment?"
   are_you_sure_blog_entry: "Are you sure you want to delete this blog entry?"
@@ -9,6 +10,7 @@ en-US:
   blog_management: "Blog management" 
   blog_management_description: "Manage the blog and comments"
   comment: "Comment"
+  comment_successfully_submitted: "Your comment was successfully submitted, and will be reviewed by an administrator soon."
   posted_by: "Posted by"
   review_comments: "Review comments"
   submit_comment: "Submit comment"

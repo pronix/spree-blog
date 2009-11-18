@@ -31,7 +31,7 @@ class BlogEntriesController < Spree::BaseController
                            :approved => false # should be done automatically in SQL
 
     if @comment.save
-      flash[:notice] = 'Your comment was successfully submitted, and will be reviewed by an administrator soon.'
+      flash[:notice] = I18n.t("comment_successfully_submitted")
       redirect_to :action => 'index'
     else
       @blog = BlogEntry.find(params[:comment][:blog_id])
