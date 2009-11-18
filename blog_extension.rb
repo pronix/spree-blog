@@ -25,7 +25,16 @@ class BlogExtension < Spree::Extension
         @extension_links << {:link => admin_blog_entries_path, :link_text => t('blog_management'), :description => t('blog_management_description')}
       end
     end
-    
+
+    # Use blog in first page
+    Spree::BaseController.class_eval do
+      before_filter :render_blog
+
+      def render_blog
+        render :template=>"/shared/_blog_snippet" if request.path.eql?("/")
+      end
+    end
+
     # Add blog mention access functionality to the product model
     Product.class_eval do
       has_many :blog_entries
