@@ -1,8 +1,13 @@
-<h1>Blog entries</h1>
+<div class='toolbar'>
+  <ul class='actions'>
+    <li>
+      <%= button_link_to t("new_blog_entry"), new_admin_blog_entry_path , :icon => 'add'  %>
+    </li>
+  </ul>
+  <br class='clear' />
+</div>
 
-<br/><br/>
-<%= button_link_to t("new_blog_entry"), new_admin_blog_entry_path , :icon => 'add'  %>
-<br/><br/>
+<h1><%= t("blog_entries") %></h1>
 
 <table class="index">
   <thead>
