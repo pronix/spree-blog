@@ -1,43 +1,47 @@
 <h1>Blog entries</h1>
 
 <br/><br/>
-<%= link_to t('new_blog_entry'), new_admin_blog_entry_path %>
+<%= button_link_to t("new_blog_entry"), new_admin_blog_entry_path , :icon => 'add'  %>
 <br/><br/>
 
-<table cellspacing=6>
+<table class="index">
+  <thead>
   <tr>
     <th>Date/Author</th>
     <th>Title and products</th>
     <th>Body</th>
+    <th><%= t("action") %></th>
   </tr>
+  </thead>
+  <tbody>
+  <% for blog_entry in @blog_entries %>
+    <tr id="<%= dom_id blog_entry %>">
+      <td>
+        <%=h blog_entry.created_at.strftime("%d-%m-%y (%H:%M)") %>
+        <br/>
+        by <%=blog_entry.author %>
+      </td>
+      <td>
+        <strong><%=blog_entry.title %></strong>
+        <br/>
+        <ul style="list-style: none">
+        <% blog_entry.products.each do |p| %>
+          <li> <%= link_to p.name, p %> </li>
+        <% end %>
+        </ul>
 
-<% for blog_entry in @blog_entries %>
-  <tr>
-    <td> 
-      <%=h blog_entry.created_at.strftime("%d-%m-%y (%H:%M)") %>
-      <br/>
-      by <%=blog_entry.author %>
-    </td>
-    <td>
-      <strong><%=blog_entry.title %></strong>
-      <br/>
-      <ul style="list-style: none">
-      <% blog_entry.products.each do |p| %>
-        <li> <%= link_to p.name, p %> </li>
-      <% end %>
-      </ul>
-      
-    </td>
-    <td style="border: 1px dashed green">
-      <%= truncate(blog_entry.body, length = 100, truncate_string = "...") %>
-    </td>
-    <td>
-        <%= link_to (t('review_comments') + " (#{blog_entry.comments.not_approved.length})"),
-                    [:admin, blog_entry, :comments] %> |
-        <%= link_to t('edit'), [:edit, :admin, blog_entry] %> |
-        <%= link_to t('destroy'), [:admin, blog_entry], :method => :delete, :confirm => t('are_you_sure_blog_entry') %>
-    </td>
-  </tr>
-<% end %>
+      </td>
+      <td style="border: 1px dashed green">
+        <%= truncate(blog_entry.body, length = 100, truncate_string = "...") %>
+      </td>
+      <td>
+          <%= link_to (t('review_comments') + " (#{blog_entry.comments.not_approved.length})"),
+                      [:admin, blog_entry, :comments] %> |
+          <%= link_to_edit blog_entry %>
+          <%= link_to_delete  blog_entry %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
 </table>
 
