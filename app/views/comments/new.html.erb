@@ -1,4 +1,4 @@
-<h1>Add a comment on blog entry: </h1>
+<h1><%= t("add_comment_on_this_blog_entry") %> : </h1>
 
 <%= render :partial => 'blog_entries/blog', :locals => {:b => @blog} %>
 
@@ -9,13 +9,13 @@
 <%= f.hidden_field :blog_entry_id, :value => @blog.id %>
 
 <p>
-  <%=t :please_add %>
+  <%= t("add_comment_below") %>
 </p>
 <p>
   <%= f.text_area :body, :cols => 60, :rows => 10 %>
 </p>
 <p>
-  We will link to your web page if you supply a URI
+  <%= t("we_will_link") %>
 </p>
 <p>
   <%= f.text_field :uri, :size => 50 %>
@@ -27,7 +27,7 @@
   <%= f.text_field :name, :size => 30 %>
 </p>
 <p>
-  <%= f.submit "Submit comment" %>
+  <%= f.submit t("submit_comment") %>
 </p>
 <% end %>
 

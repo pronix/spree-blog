@@ -13,7 +13,7 @@
   <li>
     <%= render :partial => 'blog', :locals => {:b => b} %>
     <br/>
-    <strong><%= pluralize(b.comments.approved.length, 'comment') %></strong> -- 
+    <strong><%= pluralize(b.comments.approved.length, t("comment")) %></strong> --
     <%= link_to t('read_the_comments'), (blog_entry_path(b) + '#comments') %> -- 
     <%= link_to t('submit_a_comment'), new_blog_entry_comment_path(b) %>
     <br/>

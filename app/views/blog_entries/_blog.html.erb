@@ -3,7 +3,7 @@
 <% end %>
 
 <div class="blog_header">
-  <%= b.created_at.strftime("%A, %d %B %Y") %>, posted by <%= b.author %> 
+  <%= l(b.created_at) %>, <%= t("posted_by")  %> <%= b.author %>
 </div>
 <h2>
   <%= link_to "<strong>#{b.title}</strong>", (blog_entry_path b) %>
